@@ -18,6 +18,12 @@ public class GoogleSearchInterface {
 	private AccountDetails acc;
 	private DataExchange hub;
 	private HashMap<String, Integer> AvailableElements;
+	
+	public GoogleSearchInterface(DataExchange hub) {
+		this.hub = hub;
+		this.AvailableElements = new HashMap<>();
+		this.defineElements();
+	}
 
 	private void defineElements() {
 		MethodTemplates mt = new MethodTemplates(hub);

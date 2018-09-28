@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.cm4all.qa</groupId>
-  <artifactId>cm4all-auto-test</artifactId>
-  <version>3.3</version>
+  <groupId>com.DaWerner.testing</groupId>
+  <artifactId>testing_framework</artifactId>
+  <version>0.1</version>
   <packaging>jar</packaging>
   
   <properties> 

@@ -9,13 +9,14 @@ public class CLIParser {
 
 	protected String Browser, Server, MailAddress, HubURL, Account, Language, Team, TestType, BackendURL;
 	protected Boolean Screenshots, LangCheck;
-	private ArrayList<String> Arguments;
+	protected ArrayList<String> Arguments;
 
 	public CLIParser(String[] Args) {
 		this.Browser = "Chrome";
 		this.MailAddress = "";
 		this.Team = "QA";
 		this.Server = "";
+		this.Arguments = new ArrayList<>();
 		this.Account = "";
 		this.Screenshots = true;
 		this.LangCheck = false;
@@ -23,15 +24,14 @@ public class CLIParser {
 		this.HubURL = "http://172.30.4.23:4444/wd/hub";
 		this.Language = "en";
 		this.TestType = "standard";
-		this.Arguments = this.parseCLI(Args);
+		this.parseCLI(Args);
 	}
 
 	/**
 	 * Reads arguments and parses them to variables
 	 * @return ArrayList containing TestCases
 	 */
-	private ArrayList<String> parseCLI(String[] args) {
-		ArrayList<String> Arguments = new ArrayList<String>();
+	private void parseCLI(String[] args) {
 		List<String> Keywords = new ArrayList<>();
 		for (int Iter = 0; Iter < args.length; Iter++) {
 			if (args[Iter].startsWith("--")) {
@@ -101,8 +101,6 @@ public class CLIParser {
 			}
 
 		}
-
-		return (Arguments);
 	}
 	
 }

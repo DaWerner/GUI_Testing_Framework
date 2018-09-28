@@ -464,7 +464,7 @@ public class DataExchange {
 	 * @return
 	 */
 	public ArrayList<String> getArguments() {
-		return (ArrayList<String>) this.getArguments;
+		return (ArrayList<String>) this.parse.Arguments;
 	}
 
 

@@ -63,6 +63,27 @@ public class Report {
 		this.Testcases.get(TC).addResult(Test, Result, painValue);
 	}
 
+	
+	/**
+	 * Method to add a new Result
+	 * 
+	 * @param TC
+	 *            Name of the Testcase, must match a Testcase created via
+	 *            addTestcase()
+	 * @param Test
+	 *            Name of the Test
+	 * @param Result
+	 *            Boolean value returned by test (null for exits because of non
+	 *            present Elements)
+	 */
+	public void addResult(String TC, String Test, Boolean Result) {
+		if (!takeNewOnes)
+			Result = false;
+		if(Testcases.get(TC) == null)
+			throw new IllegalStateException("Testcase " + TC + " has not been declared\nDeclare a new Testcase by using addTestcase");
+		this.Testcases.get(TC).addResult(Test, Result, 0);
+	}
+
 	public void setAllFalse() {
 		this.takeNewOnes = false;
 		for (String Key : Testcases.keySet()) {

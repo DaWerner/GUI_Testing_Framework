@@ -60,11 +60,10 @@ public class UtilityFunctions {
 		}
 	}
 
-	public static Boolean openPublished(DataExchange Hub, String Name) {
+	public static Boolean openPage(DataExchange Hub, String Name) {
 		try {
-			String PubRUL = Hub.getPublishedURL() + "/" + Name;
+			String PubRUL = Name;
 			Hub.getDriver().get(PubRUL);
-			Thread.sleep(1000);
 			HttpURLConnection Conn = (HttpURLConnection) new URL(PubRUL).openConnection();
 			return Conn.getResponseCode() < 400;
 		} catch (Exception e) {

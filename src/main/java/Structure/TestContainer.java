@@ -3,9 +3,7 @@ import java.util.HashMap;
 
 import Utilities.Report;
 
-public interface TestContainer extends Runnable {
-	
-	
+public interface TestContainer extends Runnable {	
 	/**
 	 * Method to get accumulated report Data from Testcontainer 
 	 * @return Report data gathered
@@ -17,5 +15,6 @@ public interface TestContainer extends Runnable {
 	 * @return Config Parameters used while configuration
 	 */
 	public HashMap<String, String> getConfigParams();
+	
 	
 }
