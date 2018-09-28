@@ -80,6 +80,15 @@ public class UtilityFunctions {
 		}
 	}
 
+	/**
+	 * Method to extract the base URL from valid URLs
+	 * @param URL
+	 * @return URL containing the Protocol declaration but no path data
+	 */
+	public static String getBaseURL(String URL) {
+		return URL.substring(0, UtilityFunctions.nthIndexOf(URL, "/", 3));
+	}
+	
 	public static String generateRandomHexColor() {
 		Random random = new Random();
 		int nextInt = random.nextInt(256 * 256 * 256);

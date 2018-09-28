@@ -115,14 +115,7 @@ public class DataExchange {
 		new StateServer(this).start();
 	}
 	
-	/**
-	 * Method to extract the base URL from valid URLs
-	 * @param URL
-	 * @return URL containing the Protocol declaration but no path data
-	 */
-	public String getBaseURL(String URL) {
-		return URL.substring(0, UtilityFunctions.nthIndexOf(URL, "/", 3));
-	}
+
 
 	private String getReportHeader() {
 		String Start = "{\"testServer\": \"" + this.parse.Server + "\"," + " \"testDate\": \"" + UtilityFunctions.getDate(System.currentTimeMillis(), "yyyy-MM-dd'T'hh:mm:ss") + "\","
@@ -453,7 +446,7 @@ public class DataExchange {
 	 * @return Base URL of Server with trailing "/"
 	 */
 	public String getServerName() {
-		return getBaseURL(parse.Server);
+		return UtilityFunctions.getBaseURL(parse.Server);
 	}
 
 

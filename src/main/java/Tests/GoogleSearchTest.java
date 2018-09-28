@@ -1,6 +1,7 @@
 package Tests;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import Controls.GoogleSearchInterface;
 import Structure.TestContainer;
@@ -39,6 +40,18 @@ public class GoogleSearchTest implements TestContainer{
 		rep.addResult("search_for_Term", "check_empty_search_is_ignored", !gSearch.search());
 		rep.addResult("search_for_Term", "write_search_term", gSearch.writeSearchTerm(parameters.get("Search_Term")));
 		rep.addResult("search_for_Term", "search_for_Term", gSearch.search());
+		
+		UtilityFunctions.openPage(hub, parameters.get("URL"));
+		gSearch = new GoogleSearchInterface(hub);
+		rep.addResult("check_offered_services", "open_services", gSearch.openServices());
+		Set<String> services = gSearch.getServices();
+		for(String service : services.toArray(new String[services.size()])){
+			rep.addResult("check_offered_services", "link_"+ UtilityFunctions.getBaseURL(service)+ "_works", gSearch.checkAllServiceLinks(service));
+		}
+		String toOpen = UtilityFunctions.getRandomFromSet(services);
+		rep.addResult("check_offered_services", "check_link_isnt_blocked", gSearch.clickService(toOpen));
+		parameters.put("randomly_selected_service", UtilityFunctions.getBaseURL(toOpen));
+		
 	}
 
 	@Override
